@@ -1,0 +1,19 @@
+https://www.digikey.com/product-detail/en/microchip-technology/DSPIC33EP256MU806-I-PT/DSPIC33EP256MU806-I-PT-ND/2712346
+https://www.microchip.com/wwwproducts/en/dsPIC33EP256MU806
+
+USB Joystick HID specs
+https://www.microchip.com/forums/m157003.aspx
+https://www.usb.org/hid
+
+N64 controller spects
+http://svn.navi.cx/misc/trunk/wasabi/devices/cube64/notes/n64-observations
+https://kthompson.gitlab.io/2016/07/26/n64-controller-protocol.html
+https://os.mbed.com/users/fomartin/notebook/n64-controller-interface/
+
+Carbon Ink
+https://www.mikrocontroller.net/topic/413320
+
+Leiterplattenhersteller, die Carbon Ink unterstützen:
+https://www.andus.de/kontakt/bestellung.php
+
+Max current draw from n64: 24mA
