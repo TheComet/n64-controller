@@ -12,8 +12,13 @@ https://os.mbed.com/users/fomartin/notebook/n64-controller-interface/
 
 Carbon Ink
 https://www.mikrocontroller.net/topic/413320
+https://www.eurocircuits.com/pcb-design-guidelines/#carbon
 
 Leiterplattenhersteller, die Carbon Ink unterstützen:
 https://www.andus.de/kontakt/bestellung.php
 
-Max current draw from n64: 24mA
+Max current draw from n64: 24mA? This was measured without rumble pak
+
+PCB links:
+https://pcbshopper.com/
+
