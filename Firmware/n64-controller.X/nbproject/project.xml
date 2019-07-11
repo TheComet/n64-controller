@@ -20,10 +20,6 @@
             </sourceRootList>
             <confList>
                 <confElem>
-                    <name>Debug</name>
-                    <type>2</type>
-                </confElem>
-                <confElem>
                     <name>Simulator</name>
                     <type>2</type>
                 </confElem>
