@@ -3,4 +3,6 @@
 *.LOG
 /Project Outputs for N64_Controller
 /*.PrjPcbStructure
+/*.OutJob
+/N64_Controller.pdf
 

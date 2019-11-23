@@ -1,1 +1,1 @@
-Bluetooth=BT_RX,BT_TX,BT_EN
+Bluetooth=BT_EN,BT_TX,BT_RX
