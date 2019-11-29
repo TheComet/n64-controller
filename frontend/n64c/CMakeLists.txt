@@ -7,12 +7,15 @@ find_package (Qt5Core REQUIRED)
 find_package (Qt5LinguistTools REQUIRED)
 
 set (n64c_SOURCES
-    "src/MainWindow.cpp"
-    "src/api.cpp")
+    "src/api.cpp"
+    "src/DeviceSettings.cpp"
+    "src/MainWindow.cpp")
 set (n64c_HEADERS )
 set (n64c_HEADERS_MOC
-    "include_private/n64c/MainWindow.hpp")
+    "include_private/n64c/MainWindow.hpp"
+    "include_private/n64c/DeviceSettings.hpp")
 set (n64c_FORMS
+    "forms/DeviceSettings.ui"
     "forms/MainWindow.ui")
 set (n64c_RESOURCES
     "res/n64c.res")

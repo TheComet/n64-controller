@@ -2,6 +2,8 @@
 
 #include <QMainWindow>
 
+class QMdiArea;
+
 namespace Ui {
     class MainWindow;
 }
@@ -17,6 +19,7 @@ public:
 
 private:
     Ui::MainWindow* ui_;
+    QMdiArea* mdiArea_;
 };
 
 }
