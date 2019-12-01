@@ -8,22 +8,34 @@ find_package (Qt5LinguistTools REQUIRED)
 
 set (n64c_SOURCES
     "src/api.cpp"
-    "src/ContextPaneUser.cpp"
-    "src/ControllerPakTool.cpp"
-    "src/DeviceSettings.cpp"
-    "src/MainWindow.cpp"
-    "src/NodeEditor.cpp"
-    "src/ProfileView.cpp"
-    "src/ToolsPane.cpp")
+    "src/models/nodes/BooleanOperationModel.cpp"
+    "src/models/nodes/CurveModel.cpp"
+    "src/models/nodes/MathOperationModel.cpp"
+    "src/models/nodes/N64ControllerInputDataModel.cpp"
+    "src/models/nodes/N64ControllerOutputDataModel.cpp"
+    "src/models/nodes/ThresholdModel.cpp"
+    "src/views/ContextPaneUser.cpp"
+    "src/views/ControllerPakTool.cpp"
+    "src/views/DeviceSettings.cpp"
+    "src/views/MainWindow.cpp"
+    "src/views/NodeEditor.cpp"
+    "src/views/ProfileView.cpp"
+    "src/views/ToolsPane.cpp")
 set (n64c_HEADERS )
 set (n64c_HEADERS_MOC
-    "include_private/n64c/ContextPaneUser.hpp"
-    "include_private/n64c/ControllerPakTool.hpp"
-    "include_private/n64c/MainWindow.hpp"
-    "include_private/n64c/NodeEditor.hpp"
-    "include_private/n64c/DeviceSettings.hpp"
-    "include_private/n64c/ProfileView.hpp"
-    "include_private/n64c/ToolsPane.hpp")
+    "include_private/n64c/models/nodes/BooleanOperationModel.hpp"
+    "include_private/n64c/models/nodes/CurveModel.hpp"
+    "include_private/n64c/models/nodes/MathOperationModel.hpp"
+    "include_private/n64c/models/nodes/N64ControllerInputDataModel.hpp"
+    "include_private/n64c/models/nodes/N64ControllerOutputDataModel.hpp"
+    "include_private/n64c/models/nodes/ThresholdModel.hpp"
+    "include_private/n64c/views/ContextPaneUser.hpp"
+    "include_private/n64c/views/ControllerPakTool.hpp"
+    "include_private/n64c/views/MainWindow.hpp"
+    "include_private/n64c/views/NodeEditor.hpp"
+    "include_private/n64c/views/DeviceSettings.hpp"
+    "include_private/n64c/views/ProfileView.hpp"
+    "include_private/n64c/views/ToolsPane.hpp")
 set (n64c_FORMS
     "forms/ControllerPakTool.ui"
     "forms/DeviceSettings.ui"

@@ -1,18 +1,18 @@
-#include "n64c/DeviceSettings.hpp"
-#include "n64c/ui_DeviceSettings.h"
+#include "n64c/views/ControllerPakTool.hpp"
+#include "n64c/ui_ControllerPakTool.h"
 
 namespace n64c {
 
 // ----------------------------------------------------------------------------
-DeviceSettings::DeviceSettings(QWidget* parent) :
+ControllerPakTool::ControllerPakTool(QWidget* parent) :
     QWidget(parent),
-    ui_(new Ui::DeviceSettings)
+    ui_(new Ui::ControllerPakTool)
 {
     ui_->setupUi(this);
 }
 
 // ----------------------------------------------------------------------------
-DeviceSettings::~DeviceSettings()
+ControllerPakTool::~ControllerPakTool()
 {
     delete ui_;
 }

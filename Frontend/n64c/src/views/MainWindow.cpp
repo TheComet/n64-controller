@@ -1,9 +1,9 @@
-#include "n64c/ControllerPakTool.hpp"
-#include "n64c/DeviceSettings.hpp"
-#include "n64c/ToolsPane.hpp"
-#include "n64c/MainWindow.hpp"
+#include "n64c/views/ControllerPakTool.hpp"
+#include "n64c/views/DeviceSettings.hpp"
+#include "n64c/views/ToolsPane.hpp"
+#include "n64c/views/MainWindow.hpp"
 #include "n64c/ui_MainWindow.h"
-#include "n64c/ProfileView.hpp"
+#include "n64c/views/ProfileView.hpp"
 
 #include <QMdiArea>
 #include <QToolBar>

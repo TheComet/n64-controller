@@ -1,4 +1,4 @@
-#include "n64c/NodeEditor.hpp"
+#include "n64c/views/NodeEditor.hpp"
 #include "n64c/ui_NodeEditor.h"
 
 #include <nodes/DataModelRegistry>

@@ -1,4 +1,4 @@
-#include "n64c/ContextPaneUser.hpp"
+#include "n64c/views/ContextPaneUser.hpp"
 
 namespace n64c {
 

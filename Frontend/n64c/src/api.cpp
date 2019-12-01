@@ -1,5 +1,5 @@
 #include "n64c/api.h"
-#include "n64c/MainWindow.hpp"
+#include "n64c/views/MainWindow.hpp"
 
 #include <QApplication>
 

@@ -1,4 +1,4 @@
-#include "n64c/ToolsPane.hpp"
+#include "n64c/views/ToolsPane.hpp"
 
 #include <QVBoxLayout>
 #include <QApplication>
