@@ -8,15 +8,25 @@ find_package (Qt5LinguistTools REQUIRED)
 
 set (n64c_SOURCES
     "src/api.cpp"
+    "src/ContextPaneUser.cpp"
+    "src/ControllerPakTool.cpp"
     "src/DeviceSettings.cpp"
-    "src/MainWindow.cpp")
+    "src/MainWindow.cpp"
+    "src/ProfileView.cpp"
+    "src/ToolsPane.cpp")
 set (n64c_HEADERS )
 set (n64c_HEADERS_MOC
+    "include_private/n64c/ContextPaneUser.hpp"
+    "include_private/n64c/ControllerPakTool.hpp"
     "include_private/n64c/MainWindow.hpp"
-    "include_private/n64c/DeviceSettings.hpp")
+    "include_private/n64c/DeviceSettings.hpp"
+    "include_private/n64c/ProfileView.hpp"
+    "include_private/n64c/ToolsPane.hpp")
 set (n64c_FORMS
+    "forms/ControllerPakTool.ui"
     "forms/DeviceSettings.ui"
-    "forms/MainWindow.ui")
+    "forms/MainWindow.ui"
+    "forms/ProfileView.ui")
 set (n64c_RESOURCES
     "res/n64c.res")
 set (n64c_TRANSLATION_FILES
@@ -56,7 +66,8 @@ target_link_libraries (n64c
     PRIVATE
         Qt5::Core
         Qt5::Widgets
-        Qt5::Gui)
+        Qt5::Gui
+        QtColorWidgets)
 
 ###############################################################################
 # Translation Files

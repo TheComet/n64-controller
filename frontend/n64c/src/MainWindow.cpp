@@ -1,14 +1,20 @@
+#include "n64c/ControllerPakTool.hpp"
 #include "n64c/DeviceSettings.hpp"
+#include "n64c/ToolsPane.hpp"
 #include "n64c/MainWindow.hpp"
 #include "n64c/ui_MainWindow.h"
+#include "n64c/ProfileView.hpp"
 
 #include <QMdiArea>
 #include <QToolBar>
 #include <QDockWidget>
 #include <QHBoxLayout>
+#include <QTabWidget>
+#include <QMdiSubWindow>
+#include <QTabBar>
 
 namespace n64c {
-    
+
 class MdiAreaWithBackgroundImage : public QMdiArea
 {
 public:
@@ -31,30 +37,124 @@ protected:
 MainWindow::MainWindow(QWidget* parent) :
     QMainWindow(parent),
     ui_(new Ui::MainWindow),
-    mdiArea_(new MdiAreaWithBackgroundImage)
+    mdiArea_(new MdiAreaWithBackgroundImage),
+    toolsPane_(new ToolsPane),
+    activeContextPaneUser_(nullptr)
 {
     ui_->setupUi(this);
-    setLayout(new QHBoxLayout);
-    
+
+    // Mdi area where multiple profile views can be loaded and edited
     mdiArea_->setViewMode(QMdiArea::TabbedView);
     mdiArea_->setTabsClosable(true);
     mdiArea_->setTabsMovable(true);
-    
+    setCentralWidget(mdiArea_);
+
+    // Holds buttons for showing/hiding the different left-sided panes
     QToolBar* toolbar = new QToolBar;
-    layout()->addWidget(toolbar);
-    
+    toolbar->setMovable(false);
+    toolbar->setFloatable(false);
+    addToolBar(Qt::LeftToolBarArea, toolbar);
+
+    // Tools pane
     QDockWidget* dockWidget = new QDockWidget;
-    DeviceSettings* deviceSettings = new DeviceSettings;
-    dockWidget->setWidget(deviceSettings);
-    dockWidget->setObjectName("dock");
+    dockWidget->setWidget(toolsPane_);
+    dockWidget->setFeatures(QDockWidget::DockWidgetClosable);
     addDockWidget(Qt::LeftDockWidgetArea, dockWidget, Qt::Vertical);
-    toolbar->addAction(dockWidget->toggleViewAction());
+    QAction* action = dockWidget->toggleViewAction();
+    action->setText("Tools");
+    toolbar->addAction(action);
+
+    toolsPane_->addWidget(new DeviceSettings);
+
+    connect(mdiArea_, SIGNAL(subWindowActivated(QMdiSubWindow*)), this, SLOT(onSubWindowActivated(QMdiSubWindow*)));
+    connect(ui_->action_newProfile, SIGNAL(triggered()), this, SLOT(newProfile()));
+    connect(ui_->action_controllerPakTool, SIGNAL(triggered()), this, SLOT(openControllerPakTool()));
+
+    openControllerPakTool();
+    newProfile();
+    newProfile();
 }
 
 // ----------------------------------------------------------------------------
 MainWindow::~MainWindow()
 {
     delete ui_;
+}
+
+// ----------------------------------------------------------------------------
+void MainWindow::newProfile()
+{
+    QWidget* dummy = new QWidget;
+    QMdiSubWindow* dummyWindow = mdiArea_->addSubWindow(dummy);
+
+    ProfileView* newProfileView = new ProfileView(toolsPane_);
+    QMdiSubWindow* newSubWindow = mdiArea_->addSubWindow(newProfileView);
+    newSubWindow->showMaximized();
+
+    connect(newProfileView, SIGNAL(profileColorChanged(QColor)), this, SLOT(onProfileColorChanged(QColor)));
+    connect(newProfileView, SIGNAL(profileNameChanged(const QString&)), this, SLOT(onProfileNameChanged(QString)));
+
+    newProfileView->loadDefaultSettings();
+
+    dummyWindow->close();
+}
+
+// ----------------------------------------------------------------------------
+void MainWindow::openControllerPakTool()
+{
+    if (mdiArea_->findChild<ControllerPakTool*>())
+        return;
+
+    ControllerPakTool* controllerPakTool = new ControllerPakTool;
+    QMdiSubWindow* subWindow = mdiArea_->addSubWindow(controllerPakTool);
+    subWindow->showMaximized();
+}
+
+// ----------------------------------------------------------------------------
+void MainWindow::onSubWindowActivated(QMdiSubWindow* subWindow)
+{
+    if (activeContextPaneUser_)
+    {
+        activeContextPaneUser_->onViewDeactivated();
+        activeContextPaneUser_ = nullptr;
+    }
+
+    if (subWindow)
+    {
+        activeContextPaneUser_ = qobject_cast<ContextPaneUser*>(subWindow->widget());
+        if (activeContextPaneUser_)
+            activeContextPaneUser_->onViewActivated();
+    }
+}
+
+// ----------------------------------------------------------------------------
+void MainWindow::onProfileColorChanged(QColor color)
+{
+    QTabBar* tabBar = mdiArea_->findChild<QTabBar*>();
+    tabBar->setTabTextColor(findTabBarIndexForSubWindowWidget(sender()), color);
+}
+
+// ----------------------------------------------------------------------------
+void MainWindow::onProfileNameChanged(QString name)
+{
+    if (name.isEmpty())
+        name = "Untitled Profile";
+
+    QTabBar* tabBar = mdiArea_->findChild<QTabBar*>();
+    tabBar->setTabText(findTabBarIndexForSubWindowWidget(sender()), name);
+}
+
+// ----------------------------------------------------------------------------
+int MainWindow::findTabBarIndexForSubWindowWidget(QObject* w) const
+{
+    int index = 0;
+    for (const auto& subWindow : mdiArea_->subWindowList())
+    {
+        if (subWindow->widget() == w)
+            return index;
+        index++;
+    }
+    return -1;
 }
 
 }

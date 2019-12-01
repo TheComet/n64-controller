@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>1003</width>
+    <height>1142</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,15 +19,17 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
-     <height>22</height>
+     <width>1003</width>
+     <height>39</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
     <property name="title">
      <string>File</string>
     </property>
-    <addaction name="actionQuit"/>
+    <addaction name="action_newProfile"/>
+    <addaction name="separator"/>
+    <addaction name="action_quit"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -35,7 +37,14 @@
     </property>
     <addaction name="actionAboutz"/>
    </widget>
+   <widget class="QMenu" name="menuTools">
+    <property name="title">
+     <string>Tools</string>
+    </property>
+    <addaction name="action_controllerPakTool"/>
+   </widget>
    <addaction name="menuFile"/>
+   <addaction name="menuTools"/>
    <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
@@ -50,7 +59,7 @@
     <bool>false</bool>
    </attribute>
   </widget>
-  <action name="actionQuit">
+  <action name="action_quit">
    <property name="text">
     <string>Quit</string>
    </property>
@@ -58,6 +67,16 @@
   <action name="actionAboutz">
    <property name="text">
     <string>About</string>
+   </property>
+  </action>
+  <action name="action_newProfile">
+   <property name="text">
+    <string>New Profile</string>
+   </property>
+  </action>
+  <action name="action_controllerPakTool">
+   <property name="text">
+    <string>Controller Pak...</string>
    </property>
   </action>
  </widget>

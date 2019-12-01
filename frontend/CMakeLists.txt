@@ -8,6 +8,8 @@ project ("N64 Controller")
 
 include (GNUInstallDirs)
 
+add_subdirectory ("thirdparty/nodeeditor")
+add_subdirectory ("thirdparty/Qt-Color-Widgets")
 add_subdirectory ("n64c")
 add_subdirectory ("application")
 
