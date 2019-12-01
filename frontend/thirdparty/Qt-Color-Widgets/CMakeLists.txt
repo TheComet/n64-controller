@@ -151,9 +151,6 @@ install_project (
   VERSION_HEADER ${CMAKE_CURRENT_BINARY_DIR}/${COLORWIDGET_PROJECT_NAME}_version.h
   NAMESPACE "")
 
-
-add_subdirectory (gallery)
-
 option(QTCOLORWIDGETS_DESIGNER_PLUGIN "Build QtDesigner plugin" ON)
 if (${QTCOLORWIDGETS_DESIGNER_PLUGIN})
     find_package (Qt5Designer)

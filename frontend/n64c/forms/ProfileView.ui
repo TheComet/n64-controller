@@ -23,6 +23,11 @@
       <attribute name="title">
        <string>Node Editor</string>
       </attribute>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <layout class="QHBoxLayout" name="layout_nodeEditor"/>
+       </item>
+      </layout>
      </widget>
      <widget class="QWidget" name="macroEditor">
       <attribute name="title">

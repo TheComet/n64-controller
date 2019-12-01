@@ -12,6 +12,7 @@ set (n64c_SOURCES
     "src/ControllerPakTool.cpp"
     "src/DeviceSettings.cpp"
     "src/MainWindow.cpp"
+    "src/NodeEditor.cpp"
     "src/ProfileView.cpp"
     "src/ToolsPane.cpp")
 set (n64c_HEADERS )
@@ -19,6 +20,7 @@ set (n64c_HEADERS_MOC
     "include_private/n64c/ContextPaneUser.hpp"
     "include_private/n64c/ControllerPakTool.hpp"
     "include_private/n64c/MainWindow.hpp"
+    "include_private/n64c/NodeEditor.hpp"
     "include_private/n64c/DeviceSettings.hpp"
     "include_private/n64c/ProfileView.hpp"
     "include_private/n64c/ToolsPane.hpp")
@@ -26,6 +28,7 @@ set (n64c_FORMS
     "forms/ControllerPakTool.ui"
     "forms/DeviceSettings.ui"
     "forms/MainWindow.ui"
+    "forms/NodeEditor.ui"
     "forms/ProfileView.ui")
 set (n64c_RESOURCES
     "res/n64c.res")
@@ -67,7 +70,8 @@ target_link_libraries (n64c
         Qt5::Core
         Qt5::Widgets
         Qt5::Gui
-        QtColorWidgets)
+        QtColorWidgets
+        nodes)
 
 ###############################################################################
 # Translation Files

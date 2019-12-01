@@ -1,3 +1,4 @@
+#include "n64c/NodeEditor.hpp"
 #include "n64c/ProfileView.hpp"
 #include "n64c/ui_ProfileView.h"
 #include "n64c/ToolsPane.hpp"
@@ -41,6 +42,8 @@ ProfileView::ProfileView(ToolsPane* toolsPane, QWidget* parent) :
     profileNameLayout->addWidget(new QLabel("Name:"));
     profileNameLayout->addWidget(profileName_);
     colorGroupLayout->addLayout(profileNameLayout);
+
+    ui_->layout_nodeEditor->addWidget(new NodeEditor);
 
     connect(colorWheel_, SIGNAL(colorChanged(QColor)), this, SLOT(onProfileColorChanged(QColor)));
     connect(colorWheel_, SIGNAL(colorChanged(QColor)), colorPreview, SLOT(setColor(QColor)));
