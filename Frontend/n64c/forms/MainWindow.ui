@@ -63,6 +63,9 @@
    <property name="text">
     <string>Quit</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
   </action>
   <action name="actionAboutz">
    <property name="text">
@@ -73,10 +76,16 @@
    <property name="text">
     <string>New Profile</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
   </action>
   <action name="action_controllerPakTool">
    <property name="text">
     <string>Controller Pak...</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+P</string>
    </property>
   </action>
  </widget>

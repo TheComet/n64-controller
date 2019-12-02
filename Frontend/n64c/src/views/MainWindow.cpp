@@ -69,10 +69,6 @@ MainWindow::MainWindow(QWidget* parent) :
     connect(mdiArea_, SIGNAL(subWindowActivated(QMdiSubWindow*)), this, SLOT(onSubWindowActivated(QMdiSubWindow*)));
     connect(ui_->action_newProfile, SIGNAL(triggered()), this, SLOT(newProfile()));
     connect(ui_->action_controllerPakTool, SIGNAL(triggered()), this, SLOT(openControllerPakTool()));
-
-    openControllerPakTool();
-    newProfile();
-    newProfile();
 }
 
 // ----------------------------------------------------------------------------
