@@ -34,7 +34,10 @@ ProfileView::ProfileView(ToolsPane* toolsPane, QWidget* parent) :
     color_widgets::ColorPreview* colorPreview = new color_widgets::ColorPreview;
     colorPreview->setFixedHeight(40);
     colorGroupLayout->addWidget(colorWheel_);
-    colorGroupLayout->addWidget(colorPreview);
+    QHBoxLayout* colorPreviewLayout = new QHBoxLayout;
+    colorGroupLayout->addLayout(colorPreviewLayout);
+    colorPreviewLayout->addWidget(new QLabel("LED Color:"));
+    colorPreviewLayout->addWidget(colorPreview);
 
     // Profile name
     QHBoxLayout* profileNameLayout = new QHBoxLayout;

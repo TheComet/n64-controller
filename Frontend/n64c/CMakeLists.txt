@@ -8,8 +8,10 @@ find_package (Qt5LinguistTools REQUIRED)
 
 set (n64c_SOURCES
     "src/api.cpp"
+    "src/models/nodes/BooleanData.cpp"
     "src/models/nodes/BooleanOperationModel.cpp"
     "src/models/nodes/CurveModel.cpp"
+    "src/models/nodes/FloatData.cpp"
     "src/models/nodes/MathOperationModel.cpp"
     "src/models/nodes/N64ControllerInputDataModel.cpp"
     "src/models/nodes/N64ControllerOutputDataModel.cpp"
@@ -21,7 +23,9 @@ set (n64c_SOURCES
     "src/views/NodeEditor.cpp"
     "src/views/ProfileView.cpp"
     "src/views/ToolsPane.cpp")
-set (n64c_HEADERS )
+set (n64c_HEADERS
+    "include_private/n64c/models/nodes/BooleanData.hpp"
+    "include_private/n64c/models/nodes/FloatData.hpp")
 set (n64c_HEADERS_MOC
     "include_private/n64c/models/nodes/BooleanOperationModel.hpp"
     "include_private/n64c/models/nodes/CurveModel.hpp"

@@ -1,5 +1,8 @@
 #include "n64c/views/NodeEditor.hpp"
 #include "n64c/ui_NodeEditor.h"
+#include "n64c/models/nodes/MathOperationModel.hpp"
+#include "n64c/models/nodes/N64ControllerInputDataModel.hpp"
+#include "n64c/models/nodes/N64ControllerOutputDataModel.hpp"
 
 #include <nodes/DataModelRegistry>
 #include <nodes/FlowScene>
@@ -11,8 +14,11 @@ namespace n64c {
 static std::shared_ptr<QtNodes::DataModelRegistry>
 registerDataModels()
 {
-    auto ret = std::make_shared<QtNodes::DataModelRegistry>();
-    return ret;
+    auto reg = std::make_shared<QtNodes::DataModelRegistry>();
+    reg->registerModel<N64ControllerInputDataModel>("Input");
+    reg->registerModel<N64ControllerOutputDataModel>("Output");
+    reg->registerModel<MathOperationModel>("Converters");
+    return reg;
 }
 
 // ----------------------------------------------------------------------------
