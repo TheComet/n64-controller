@@ -4,7 +4,7 @@ if (NOT DEFINED CMAKE_BUILD_TYPE)
     set (CMAKE_BUILD_TYPE "Release" CACHE STRING "" FORCE)
 endif ()
 
-project ("N64 Controller")
+project ("N64_Controller")
 
 include (GNUInstallDirs)
 

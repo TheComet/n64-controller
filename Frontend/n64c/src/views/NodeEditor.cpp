@@ -7,6 +7,7 @@
 #include <nodes/DataModelRegistry>
 #include <nodes/FlowScene>
 #include <nodes/FlowView>
+#include <nodes/Node>
 
 namespace n64c {
 
@@ -31,6 +32,15 @@ NodeEditor::NodeEditor(QWidget* parent) :
     QtNodes::FlowScene* scene = new QtNodes::FlowScene(registerDataModels(), this);
     QtNodes::FlowView* view = new QtNodes::FlowView(scene);
     ui_->layout_nodeEditor->addWidget(view);
+
+    QtNodes::Node& input = scene->createNode(scene->registry().create("N64 Input"));
+    QtNodes::Node& output = scene->createNode(scene->registry().create("N64 Output"));
+
+    input.nodeGraphicsObject().setPos(200, 200);
+    output.nodeGraphicsObject().setPos(700, 200);
+
+    for (unsigned i = 0; i != input.nodeDataModel()->nPorts(PortType::Out); i++)
+        scene->createConnection(output, i, input, i);
 }
 
 // ----------------------------------------------------------------------------
