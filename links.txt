@@ -1,3 +1,7 @@
+Mac nRF52 toolchain setup
+=========================
+https://www.novelbits.io/nrf52-mac-development-tutorial/
+
 https://www.digikey.com/product-detail/en/microchip-technology/DSPIC33EP256MU806-I-PT/DSPIC33EP256MU806-I-PT-ND/2712346
 https://www.microchip.com/wwwproducts/en/dsPIC33EP256MU806
 
